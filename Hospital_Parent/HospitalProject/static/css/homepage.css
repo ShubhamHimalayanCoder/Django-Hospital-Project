@@ -1,0 +1,28 @@
+.car_container img{
+    position: block;  
+    height: 800px;
+}
+
+.car_desc{
+    color: blue;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: 10%;
+    left : 35%
+    
+}
+
+.apt_btn{
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: 80%; /* Adjust as needed */
+    left: 30%; /* Adjust as needed */
+}
+
+.add_btn{
+    position: absolute;
+    width: 200px;
+    transform: translate(-50%, -50%);
+    top: 80%; /* Adjust as needed */
+    left: 45%; /* Adjust as needed */
+}

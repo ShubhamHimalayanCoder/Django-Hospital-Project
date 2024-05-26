@@ -1,0 +1,254 @@
+<!doctype html>
+{% load static %}
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Hospital</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'css/homepage.css' %}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  </head>
+  <body>
+
+    <!-- Navigation Bar Starting -->
+      {% include 'navbar.html' %}
+    <!-- Navigation Bar Ending -->
+
+      <!-- Autoplaying Carousel Starts Here -->
+      <div class="container-fluid car_container">
+        <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="{% static 'images/carousel images/Carousel1.jpg' %}" class="d-block w-100 slide_img" alt="carousel1">
+                <pre><h1 class="car_desc">We Provide Medical Services 
+                That You Can Trust.</h1></pre>
+                <button class="btn btn-lg btn-primary apt_btn">Book Appointment</button>
+                <button class="btn btn-lg btn-primary add_btn">Know More</button>
+            </div>
+            <div class="carousel-item">
+                <img src="{% static 'images/carousel images/Carousel2.jpg' %}" class="d-block w-100 slide_img" alt="carousel2">
+                <pre><h1 class="car_desc">Connect With Our Doctor
+              Anytime & Anywhere.</h1></pre>
+                <button class="btn btn-lg btn-primary apt_btn">Book Appointment</button>
+                <button class="btn btn-lg btn-primary add_btn">Know More</button>
+            </div>
+            <div class="carousel-item">
+                <img src="{% static 'images/carousel images/Carousel3.jpg' %}" class="d-block w-100 slide_img" alt="carousel3">
+                <pre><h1 class="car_desc">                                        Your Health Is 
+                                                Our Priority.</h1></pre>
+                <button class="btn btn-lg btn-primary apt_btn">Book Appointment</button>
+                <button class="btn btn-lg btn-primary add_btn">Know More</button>
+            </div>
+            <div class="carousel-item">
+                <img src="{% static 'images/carousel images/Carousel4.jpg' %}" class="d-block w-100 slide_img" alt="carousel4">
+                <pre><h1 class="car_desc">Professionals At The Service 
+                          Of Your Health.</h1></pre>
+                <button class="btn btn-lg btn-primary apt_btn">Book Appointment</button>
+                <button class="btn btn-lg btn-primary add_btn">Know More</button>
+            </div>
+            <div class="carousel-item">
+                <img src="{% static 'images/carousel images/Carousel5.jpg' %}" class="d-block w-100 slide_img" alt="carousel5">
+                <pre><h1 class="car_desc">                                          Making Healthcare 
+                                                Better Together.</h1></pre>
+                <button class="btn btn-lg btn-primary apt_btn">Book Appointment</button>
+                <button class="btn btn-lg btn-primary add_btn">Know More</button>
+            </div>
+            <div class="carousel-item">
+                <img src="{% static 'images/carousel images/Carousel6.jpg' %}" class="d-block w-100 slide_img" alt="carousel6">
+                <pre><h1 class="car_desc">                                  The Best  
+                                      Medical Services</h1></pre>
+                <button class="btn btn-lg btn-primary apt_btn">Book Appointment</button>
+                <button class="btn btn-lg btn-primary add_btn">Know More</button>
+            </div>
+            <div class="carousel-item">
+              <img src="{% static 'images/carousel images/Carousel7.jpg' %}" class="d-block w-100 slide_img" alt="carousel7">
+              <pre><h1 class="car_desc">Personal Rooms
+            Available</h1></pre>
+              <button class="btn btn-lg btn-primary apt_btn">Book Appointment</button>
+              <button class="btn btn-lg btn-primary add_btn">Know More</button>
+          </div>
+          <div class="carousel-item">
+            <img src="{% static 'images/carousel images/Carousel8.jpg' %}" class="d-block w-100 slide_img" alt="carousel8">
+            <pre><h1 class="car_desc">Spacious & Clean
+          Wards.</h1></pre>
+            <button class="btn btn-lg btn-primary apt_btn">Book Appointment</button>
+            <button class="btn btn-lg btn-primary add_btn">Know More</button>
+          </div>
+          <div class="carousel-item">
+            <img src="{% static 'images/carousel images/Carousel9.jpg' %}" class="d-block w-100 slide_img" alt="carousel9">
+            <pre><h1 class="car_desc">Blood Tests Available</h1></pre>
+            <button class="btn btn-lg btn-primary apt_btn">Book Appointment</button>
+            <button class="btn btn-lg btn-primary add_btn">Know More</button>
+          </div>
+        </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+      </div>
+      <!-- Autoplaying Carousel Ends Here -->
+
+      
+      <!-- Quote Starts Here -->
+        <center>
+          <div class="card">
+          <div class="card-header">
+            Quote
+          </div>
+          <div class="card-body">
+            <blockquote class="blockquote mb-0">
+              <p>The best way to find yourself is to lose yourself in the service of others.</p>
+              <footer class="blockquote-footer"><cite title="Source Title">Mahatma Gandhi</cite></footer>
+            </blockquote>
+          </div>
+        </center><br><br>
+      <!-- Quote Ends Here -->
+
+      <!-- Cards Starts Here -->
+
+      <center><div class="row container">
+        <div class="col-sm-3 mb-3 mb-sm-4">
+          <div class="card" style="width: 18rem;">
+            <img src="{% static 'images/cards images/heart.jpg' %}" class="card-img-top" alt="heart" height="200px">
+            <div class="card-body">
+              <h5 class="card-title">Heart Specialist</h5>
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+              <a href="Appointment Form.html" class="btn btn-primary">Book Appointment</a>
+            </div>
+          </div>  
+        </div>
+        <div class="col-sm-3">
+          <div class="card" style="width: 18rem;">
+            <img src="{% static 'images/cards images/dentist.jpg' %}" class="card-img-top" alt="dentist" height="200px">
+            <div class="card-body">
+              <h5 class="card-title">Dental Treatment</h5>
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+              <a href="Appointment Form.html" class="btn btn-primary">Book Appointment</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-3">
+          <div class="card" style="width: 18rem;">
+            <img src="{% static 'images/cards images/endocrinologist.jpg' %}" class="card-img-top" alt="endocrinologist" height="200px">
+            <div class="card-body">
+              <h5 class="card-title">Hormonal Treatment</h5>
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+              <a href="Appointment Form.html" class="btn btn-primary">Book Appointment</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-3">
+          <div class="card" style="width: 18rem;">
+            <img src="{% static 'images/cards images/ear.jpg' %}" class="card-img-top" alt="ear" height="200px">
+            <div class="card-body">
+              <h5 class="card-title">ENT Problems</h5>
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+              <a href="Appointment Form.html" class="btn btn-primary">Book Appointment</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-3 mb-3 mb-sm-4">
+          <div class="card" style="width: 18rem;">
+            <img src="{% static 'images/cards images/gastro.jpg' %}" class="card-img-top" alt="gastro" height="200px">
+            <div class="card-body">
+              <h5 class="card-title">Gastroenterology</h5>
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+              <a href="Appointment Form.html" class="btn btn-primary">Book Appointment</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-3">
+          <div class="card" style="width: 18rem;">
+            <img src="{% static 'images/cards images/gynae.jpg' %}" class="card-img-top" alt="gynae" height="200px">
+            <div class="card-body">
+              <h5 class="card-title">Gynae Specialist</h5>
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+              <a href="Appointment Form.html" class="btn btn-primary">Book Appointment</a>
+            </div>
+          </div>  
+        </div>
+        <div class="col-sm-3">
+          <div class="card" style="width: 18rem;">
+            <img src="{% static 'images/cards images/neuro.jpg' %}" class="card-img-top" alt="neuro" height="200px">
+            <div class="card-body">
+              <h5 class="card-title">Neurology</h5>
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+              <a href="Appointment Form.html" class="btn btn-primary">Book Appointment</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-3">
+          <div class="card" style="width: 18rem;">
+            <img src="{% static 'images/cards images/eyes.jpg' %}" class="card-img-top" alt="eyes" height="200px">
+            <div class="card-body">
+              <h5 class="card-title">Eye Problems</h5>
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+              <a href="Appointment Form.html" class="btn btn-primary">Book Appointment</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-3 mb-3 mb-sm-4">
+          <div class="card" style="width: 18rem;">
+            <img src="{% static 'images/cards images/ortho.jpg' %}" class="card-img-top" alt="ortho" height="200px">
+            <div class="card-body">
+              <h5 class="card-title">Bones Problems</h5>
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+              <a href="Appointment Form.html" class="btn btn-primary">Book Appointment</a>
+            </div>
+          </div>  
+        </div>
+        <div class="col-sm-3">
+          <div class="card" style="width: 18rem;">
+            <img src="{% static 'images/cards images/paediatrics.jpg' %}" class="card-img-top" alt="paediatrics" height="200px">
+            <div class="card-body">
+              <h5 class="card-title">Paediatrics</h5>
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+              <a href="Appointment Form.html" class="btn btn-primary">Book Appointment</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-3">
+          <div class="card" style="width: 18rem;">
+            <img src="{% static 'images/cards images/psychiatry.jpg' %}" class="card-img-top" alt="psychiatry" height="200px">
+            <div class="card-body">
+              <h5 class="card-title">Psychiatry Issues</h5>
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+              <a href="Appointment Form.html" class="btn btn-primary">Book Appointment</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-3">
+          <div class="card" style="width: 18rem;">
+            <img src="{% static 'images/cards images/radio.jpg' %}" class="card-img-top" alt="radio" height="200px">
+            <div class="card-body">
+              <h5 class="card-title">Radiology</h5>
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+              <a href="Appointment Form.html" class="btn btn-primary">Book Appointment</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-3 mb-3 mb-sm-4">
+          <div class="card" style="width: 18rem;">
+            <img src="{% static 'images/cards images/surgery.jpg' %}" class="card-img-top" alt="surgery" height="200px">
+            <div class="card-body">
+              <h5 class="card-title">Surgical Department</h5>
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+              <a href="Appointment Form.html" class="btn btn-primary">Book Appointment</a>
+            </div>
+          </div>  
+        </div>
+      </div></center>
+    <!-- Cards Ends Here -->
+
+    {% include 'footer.html' %}
+
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+  </body>
+</html>

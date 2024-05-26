@@ -1,0 +1,25 @@
+.heading{
+    text-align: center;
+}
+.heading>span{
+    color: #0075ff;
+}
+.patient-data{
+    height: 1000px;
+    width: 100%;
+    background-color: lightblue;
+    display: flex;
+    border-radius: 30px 30px 30px 30px;
+}
+.left-side{
+    border: 2px solid black;            
+    width: 30%;
+    height: 60%;
+    display: grid;
+    place-items: center;
+    padding: 2em;
+}
+#edit-photo{
+    font-size: large;
+    padding: 4px;
+}

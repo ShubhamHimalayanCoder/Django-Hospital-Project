@@ -1,0 +1,68 @@
+@import url('https://fonts.googleapis.com/css2?family=Courgette&display=swap');
+
+main{
+    /* background-color: aqua; */
+    margin: 2% 5%;
+}
+.patient-card{
+    display: flex;
+    background-color: #e6ebf6;
+    border-radius: 1em;
+    transition: transform 0.2s;
+    margin: 3% 0;
+    /* transition: box-shadow 0.1s; */
+}
+.patient-card p , .left-side span{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 1.3em;
+    
+}
+.left-side{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2em;
+    border-right: 2px dashed #687d7f;
+}
+.right-side{
+    padding: 3% 7% 2% 3%;
+}
+.right-side h2{
+    font-family: "Courgette", cursive;
+    font-size: 5em;
+    color: #135D66;
+}
+.left-side img{
+    border-radius: 0.7em;
+    width: 15em;
+}
+main h1{
+    text-align: center;
+    color: #135D66;
+    font-size: 4em;
+    margin-bottom: 2%;
+}
+.patient-card:hover{
+    outline: 2px solid #135D66;
+    transform: scale(1.01);
+    box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+}
+.alter-btn a{
+    font-size: 2em;
+    margin: 0.2em;
+    padding: 0.3em;
+    color: white;
+    border-radius: 0.2em;
+    transition: all 0.2s;
+}
+.delete{
+    background-color: #C73659;
+}
+
+.edit{
+    background-color: #006769;
+}
+.alter-btn a:hover{
+    background-color: white;
+    color: #687d7f;
+}

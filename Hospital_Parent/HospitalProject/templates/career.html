@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Careers</title>
+
+    <!-- Linking Bootstrap with the page -->
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    
+    <!-- Linking Bootstrap Icons with the page -->
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    
+    <link rel="stylesheet" href="{% static 'css/career.css' %}"
+</head>
+<body>
+  <!-- Navbar Starts Here -->
+  {% include 'navbar.html' %}
+  <!-- Navbar Ends Here -->
+
+  <!-- About Us Content -->
+  <img src="{% static 'images/Hospital Brand.jpg' %}" width="1500px" height="500px" class="about">
+  <center><h1>Career Options</h1></center><br><br>
+  <p style="margin-left: 50px; margin-right: 50px;">
+            Working in a hospital offers a diverse range of career options across various fields. Here are some common career paths within hospitals:<br><br>
+
+        1.)Medical and Healthcare Professionals:<br>
+        Physicians: Including various specialties such as internal medicine, surgery, pediatrics, obstetrics/gynecology, etc.<br>
+        Nurses: Registered Nurses (RNs), Nurse Practitioners (NPs), Licensed Practical Nurses (LPNs), Nurse Anesthetists, etc.<br>
+        Allied Health Professionals: Pharmacists, Physical Therapists, Occupational Therapists, Speech Therapists, Radiologic Technologists, Medical Laboratory Technologists, Respiratory Therapists, etc.<br><br>
+        Hospital Administration and Management:<br>
+        Hospital Administrators<br>
+        Healthcare Managers<br>
+        Quality Improvement Specialists<br>
+        Health Information Managers<br>
+        Human Resources Specialists<br>
+        Financial Managers<br>
+        Marketing and Public Relations Specialists<br><br>
+        Support Services:<br>
+        Patient Services Representatives<br>
+        Medical Transcriptionists<br>
+        Medical Coders and Billers<br>
+        Health Unit Coordinators<br>
+        Medical Interpreters<br><br>
+        Technical and Maintenance Staff:<br>
+        Biomedical Engineers<br>
+        Facilities Managers<br>
+        Maintenance Technicians<br>
+        IT Support Specialists<br>
+        Security Personnel<br><br>
+        Research and Development:<br>
+        Clinical Research Coordinators<br>
+        Research Scientists<br>
+        Data Analysts<br>
+        Research Assistants<br><br>
+        Patient Care and Support:<br>
+        Patient Care Technicians<br>
+        Medical Assistants<br>
+        Phlebotomists<br>
+        Dietitians and Nutritionists<br>
+        Social Workers<br>
+        Chaplains<br><br>
+        Specialized Services:<br>
+        Palliative Care Specialists<br>
+        Hospice Care Workers<br>
+        Mental Health Counselors<br>
+        Child Life Specialists (working with pediatric patients)<br>
+        Case Managers<br><br>
+        Emergency Services:<br>
+        Emergency Medical Technicians (EMTs)<br>
+        Paramedics<br>
+        Emergency Department Nurses and Physicians<br><br>
+        Educational and Academic Roles:<br>
+        Medical Educators<br>
+        Clinical Instructors<br>
+        Continuing Medical Education (CME) Coordinators<br><br>
+        Volunteer Services:<br>
+        Hospital Volunteers<br>
+        Volunteer Coordinators<br><br>
+        Each of these career paths offers opportunities for growth, advancement, and fulfillment within the dynamic environment of a hospital. Additionally, hospitals often provide training programs, continuing education opportunities, and competitive benefits for their employees.<br>
+    </p>
+    {% include 'footer.html' %}
+</body>
+</html>
+

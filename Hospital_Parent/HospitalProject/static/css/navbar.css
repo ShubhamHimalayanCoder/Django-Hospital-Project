@@ -1,0 +1,19 @@
+  .nav1{
+      font-size: 30px;
+      color: black;
+    
+  }
+  .nav1:hover{
+    color: black;
+    background-color: skyblue;
+  }
+  .nav-underline .nav-link:hover{
+      color: blue;
+      border-bottom-color: blue ;
+  }
+
+  .upper-nav>ul>li>a:hover{
+    font-size: large;
+    color: blue
+    
+  }
