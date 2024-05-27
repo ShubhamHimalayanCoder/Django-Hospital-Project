@@ -28,9 +28,9 @@
           <option value="2">New Delhi</option>
           <option value="3">Mumbai</option>
         </select>
-        <form class="d-flex" role="emergency">
-          <i class="bi bi-telephone-fill text-danger me-2"></i><font color=red class="me-2">Emergency</font> <a class="nav-link text-danger me-3" href="#">+919458224846</a>
-          <input class="form-control me-2 form-control-sm" type="search" placeholder="Search" aria-label="Search"> 
+        <i class="bi bi-telephone-fill text-danger me-2"></i><font color=red class="me-2">Emergency</font> <a class="nav-link text-danger me-3" href="#">+919458224846</a>
+        <form class="d-flex" role="emergency" method="GET" action="{% url 'Patient:patient-page' %}">
+          <input class="form-control me-2 form-control-sm" type="search" placeholder="Search" aria-label="Search" name="search"> 
           <button class="btn btn-outline-success" type="submit">Search</button> 
         </form>
     </div>

@@ -2,9 +2,20 @@ from django.shortcuts import render,redirect, HttpResponse
 from . import models
 # For error handling
 from django.db import IntegrityError
+from django.db.models import Q
 
 # Create your views here.
 def patient(request):
+    if request.GET:
+        query = request.GET['search']
+        patients = models.Patients.objects.filter(Q(patient_full_name__icontains=query)
+        | Q(patient_email__icontains=query) | Q(patient_mobile__icontains=query)
+        | Q(patient_symptoms__icontains=query)).all()
+        data = {
+            'patients' : patients
+        }
+        return render(request,'Patient/patient.html',context=data)
+
     if request.POST:
         full_name = request.POST['full_name']
         father_name = request.POST['father_name']
@@ -97,7 +108,7 @@ def update_patient(request,id):
                         patient.patient_image.delete()
                         patient.patient_image = request.FILES.get('image')
                     patient.save()
-                    return render(request,'Patient/update.html',context={'success':'done'})
+                    return render(request,'Patient/update.html',context={'success':'done','patient' : patient})
                 except IntegrityError as e:
                     if 'patient_email' in str(e):
                         error = {
@@ -115,7 +126,9 @@ def update_patient(request,id):
             error = {
                 'error':'empty-fields'
             }
+        error['patient'] = patient
         return render(request,'Patient/update.html',context=error)
         
     patient = models.Patients.objects.get(patient_id = id)
     return render(request,'Patient/update.html',context={'patient':patient})
+
