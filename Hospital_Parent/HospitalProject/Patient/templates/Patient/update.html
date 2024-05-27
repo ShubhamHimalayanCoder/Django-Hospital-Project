@@ -17,16 +17,11 @@
         {% csrf_token %}
         <div class="left-side">
             <span><b>Patient-ID : </b>{{patient.patient_id}}</span>
-            <span><b>Registered On : </b></span>
-            <span>{{patient.registeration_time}}</span>
-            <div class="img">
-                <img src="{{patient.patient_image.url}}" alt="patient-image"><br>
-                <div class="input-group">
-                    <input type="file" class="form-control" id="inputGroupFile04" aria-describedby="inputGroupFileAddon04" aria-label="Upload" name="image">
-                </div>
-            </div>
+            <span><b>Registered On : </b>{{patient.registeration_time}}</span>
+            <img src="{{patient.patient_image.url}}" alt="patient-image" width="200px" height="280px">
+            <input type="file" class="form-control" id="edit-photo" aria-describedby="inputGroupFileAddon04" aria-label="Upload" name="image">
         </div>
-        <div class="right-side">
+        <div class="right-side row g-3">
             <!-- <input type="text" placeholder="" name="full_name"> -->
 
             {% if error == 'empty-fields' %}
@@ -38,7 +33,7 @@
             
             {% if success == 'done' %}
                 <div class="alert alert-success alert-dismissible fade show" role="alert">
-                    <strong>DONE</strong> Your registration is successfull.
+                    <strong>DONE</strong> Updation is successfull.
                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                 </div>
             {% endif %}
@@ -96,7 +91,7 @@
                 
             {% if error == 'mobile-error' %}
                 <div class="alert alert-warning alert-dismissible fade show" role="alert">
-                    <strong>ERROR</strong> You should check in on some of those fields below.
+                    <strong>ERROR</strong> Please check the mobile number.
                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                 </div>
             {% endif %}
@@ -116,7 +111,7 @@
                 
             {% if error == 'email-error' %}
                 <div class="alert alert-warning alert-dismissible fade show" role="alert">
-                    <strong>ERROR</strong> You should check in on some of those fields below.
+                    <strong>ERROR</strong> Please check the E-Mail.
                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                 </div>
             {% endif %}
@@ -140,56 +135,15 @@
                         <label for="city">City<font color="red">*</font></label>
                     </div>
                 </div>
-                
-                
-                <div class="col-md-4">
-                    <div class="form-floating mb-3 form-control-sm">
-                        <select name="department" class="form-select" aria-label="Default select example">
-                            <option selected>Select</option>
-                            <option value="1">Internal Medicines</option>
-                            <option value="2">ENT</option>
-                            <option value="3">Cardiac</option>
-                            <option value="4">Neurology</option>
-                            <option value="5">Nephrology</option>
-                            <option value="6">Paediatrics</option>
-                            <option value="7">General Surgery</option>
-                            <option value="8">Neurosurgery</option>
-                            <option value="9">Urology</option>
-                        </select>
-                        <label for="department">Department<font color="red">*</font></label>
-                    </div>
-                </div>
-                
-                <div class="col-md-4">
-                    <label for="appointment_date" style="margin-left: 20px;">Appointment Date<font color="red">*</font></label>
-                    <div class="form-floating mb-3 form-control-sm" style="margin-left: 20px;">
-                        <input name= "appointment_date" type="date" id="appointment_date" name="appointment_date">
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="form-floating mb-3 form-control-sm">
-                        <select name="appointment_time_slot" class="form-select" aria-label="Default select example">
-                            <option selected>Select</option>
-                            <option value="1">9 AM - 10 AM</option>
-                            <option value="2">10 AM - 11 AM</option>
-                            <option value="3">11 AM - 12 PM</option>
-                            <option value="4">12 AM - 1 PM</option>
-                            <option value="5">1 PM - 1:30 PM</option>
-                            <option value="6">2:30 PM - 3:30 PM</option>
-                            <option value="7">3:30 PM - 4:30 PM</option>
-                        </select>
-                        <label for="appointment_time_slot">Time Slot<font color="red">*</font></label>
-                    </div>
-                </div>
                 <div class="col-md-12">
                     <div class="form-floating form-control-sm">
                         <textarea name= "symptoms" class="form-control" id="symptoms">{{patient.patient_symptoms}}</textarea>
                         <label for="symptoms">Symptoms</label>
                     </div>
                 </div>              
-                <div class="col-12">
+                <div class="col-12 d-grid">
                     <button type="submit" class="btn btn-primary btn-lg" style="margin-left: 10px;">Update</button>
-                </div>`
+                </div>
             </div>
         </form>
     </div>
