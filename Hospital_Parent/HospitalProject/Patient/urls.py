@@ -4,7 +4,10 @@ from . import views
 app_name = 'Patient'
 
 urlpatterns = [
-    path('',views.patient,name='patient-page'),
-    path('delete/<int:id>',views.delete_patient,name='delete-card'),
-    path('update/<int:id>',views.update_patient,name='update'),
+    path('<int:page>/',views.patient, name='patient-page'),
+    path('delete/<int:id>', views.delete_patient, name='delete-card'),
+    path('update/<int:id>', views.update_patient, name='update'),
+    path('filter/<slug:by>', views.filter_patient, name='filter-patient'),
+    path('export-to-excel/', views.convert_to_excel, name='to-excel'),
+    path('download-excel-file/', views.download_excel_file, name='download-excel'),
 ]

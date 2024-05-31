@@ -1,11 +1,20 @@
 from django.shortcuts import render,redirect, HttpResponse
 from . import models
+
 # For error handling
 from django.db import IntegrityError
 from django.db.models import Q
 
+# For excel file
+import pandas as pd
+from django.conf import settings
+import os
+
+# For pagination
+from django.core.paginator import Paginator
+
 # Create your views here.
-def patient(request):
+def patient(request,page):
     if request.GET:
         query = request.GET['search']
         patients = models.Patients.objects.filter(Q(patient_full_name__icontains=query)
@@ -25,7 +34,6 @@ def patient(request):
         email = request.POST['email']
         city = request.POST['city']
         symptoms = request.POST['symptoms']
-        # image = request.FILES.get('image')
 
         if all([full_name,father_name,age,mobile,email,gender,city,symptoms]):
             if request.FILES.get('image'):
@@ -69,6 +77,9 @@ def patient(request):
 
     # "select * from patients;"
     patients = models.Patients.objects.all()
+
+    paginator = Paginator(patients,4)
+    # paginator.page(number=)
 
     data = {
         'patients' : patients
@@ -132,3 +143,46 @@ def update_patient(request,id):
     patient = models.Patients.objects.get(patient_id = id)
     return render(request,'Patient/update.html',context={'patient':patient})
 
+
+def filter_patient(request,by):
+    if by == 'male':
+        patients = models.Patients.objects.filter(patient_gender='male').all()
+        data = {
+            'patients' : patients
+        }
+    elif by == 'female':
+        patients = models.Patients.objects.filter(patient_gender='female').all()
+        data = {
+            'patients' : patients
+        }
+    elif by == 'age-asc':
+        patients = models.Patients.objects.order_by('patient_age')
+        data = {
+            'patients' : patients
+        }
+    elif by == 'age-desc':
+        patients = models.Patients.objects.order_by('-patient_age')
+        data = {
+            'patients' : patients
+        }
+    return render(request,'Patient/patient.html',context=data)
+    
+
+def convert_to_excel(request):
+    patients = models.Patients.objects.all().values('patient_id','patient_full_name','patient_father_name','patient_age','patient_gender','patient_mobile','patient_email','patient_city','patient_symptoms')
+    columns = ['ID', 'Name', 'Age', 'Gender', 'Phone', 'Email', 'City', 'Symptoms', 'Registeration Date']
+    raw =pd.DataFrame(patients)
+    raw.columns = columns
+    file_path = os.path.join(settings.MEDIA_ROOT,'patient_excel_file/patients.xlsx')
+    raw.to_excel(file_path)
+    return redirect('Patient:download-excel')
+
+def download_excel_file(request):
+    file_path = os.path.join(settings.MEDIA_ROOT, 'patient_excel_file/patients.xlsx')
+    if os.path.exists(file_path):
+        with open(file_path,'rb') as file:
+            response = HttpResponse(file.read(), content_type='application/vnd.openxmlformats-officedocument.spreadsheetml.sheet')
+            response['Content-Disposition'] = 'attachment; filename="patients.xlsx"'
+            return response
+    else:
+        return HttpResponse('File not found')

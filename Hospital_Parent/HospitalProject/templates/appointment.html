@@ -30,7 +30,7 @@
         
         <div class="container col-md-6 registration-form" style="margin-right: 20px;">
                 
-            <form class="row g-3 needs-validation" action= "{% url 'Patient:patient-page' %}" method="POST" enctype="multipart/form-data" novalidate>
+            <form class="row g-3 needs-validation" action= "{% url 'Patient:patient-page' page=1 %}" method="POST" enctype="multipart/form-data" novalidate>
             {% csrf_token %}
 
             {% if error == 'empty-fields' %}

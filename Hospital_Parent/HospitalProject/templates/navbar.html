@@ -29,7 +29,7 @@
           <option value="3">Mumbai</option>
         </select>
         <i class="bi bi-telephone-fill text-danger me-2"></i><font color=red class="me-2">Emergency</font> <a class="nav-link text-danger me-3" href="#">+919458224846</a>
-        <form class="d-flex" role="emergency" method="GET" action="{% url 'Patient:patient-page' %}">
+        <form class="d-flex" role="emergency" method="GET" action="{% url 'Patient:patient-page' page=1 %}">
           <input class="form-control me-2 form-control-sm" type="search" placeholder="Search" aria-label="Search" name="search"> 
           <button class="btn btn-outline-success" type="submit">Search</button> 
         </form>
@@ -48,7 +48,7 @@
       <ul class="navbar-nav me-auto mb-2 mb-lg-0 nav-underline">
         <a href="{% url 'home-page' %}"><i class="bi bi-house-fill nav1"></i></a>
         <li class="nav-item">
-          <a class="nav-link" href="{% url 'Patient:patient-page' %}">Patient</a>
+          <a class="nav-link" href="{% url 'Patient:patient-page' page=1 %}">Patient</a>
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
