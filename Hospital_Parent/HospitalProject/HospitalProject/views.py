@@ -20,6 +20,3 @@ def contact(request):
 
 def terms_and_conditions(request):
     return render(request, 't&c.html')
-
-def calling_back(request):
-    return render(request, 'callback-dialog.html')
