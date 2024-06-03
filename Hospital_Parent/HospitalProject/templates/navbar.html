@@ -1,25 +1,26 @@
 {% load static %}
 
 <link rel="stylesheet" href="{% static 'css/navbar.css' %}">
+<script src="{% static 'js/navbar.js'%}"></script>
 
 <!-- Upper Navbar Starts Here -->
 <nav class="navbar navbar-expand-sm bg-body-light">
-    <div class="container-fluid upper-nav">
-        <ul class="navbar-nav me-auto mb-2 mb-sm-0 justify-content-center" id="navbarSupportedContent">
-            <li class="nav-item">
+  <div class="container-fluid upper-nav">
+    <ul class="navbar-nav me-auto mb-2 mb-sm-0 justify-content-center" id="navbarSupportedContent">
+      <li class="nav-item">
                 <a class="nav-link" href="{% url 'about_us' %}">About Us</a>
-            </li>
-            <li class="nav-item">
+              </li>
+              <li class="nav-item">
                 <a class="nav-link" href="#">Find a Doctor</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="{% url 'career' %}">Careers</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Contact Us</a>
+              <a class="nav-link" href="#">Contact Us</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="{% url 'faq' %}">FAQ</a>
+              <a class="nav-link" href="{% url 'faq' %}">FAQ</a>
             </li>
         </ul>
         <select class="form-select form-select-sm me-3" aria-label="select" style="width: auto;">
@@ -28,17 +29,17 @@
           <option value="2">New Delhi</option>
           <option value="3">Mumbai</option>
         </select>
-        <i class="bi bi-telephone-fill text-danger me-2"></i><font color=red class="me-2">Emergency</font> <a class="nav-link text-danger me-3" href="#">+919458224846</a>
-        <form class="d-flex" role="emergency" method="GET" action="{% url 'Patient:patient-page' page=1 %}">
+        <i class="bi bi-telephone-fill text-danger me-2"></i><font color=red class="me-2">Emergency</font> <a class="nav-link text-danger me-3" href="tel:+919458224846">+919458224846</a>
+        <form class="d-flex" method="GET" action="{% url 'Patient:patient-page' page=1 %}">
           <input class="form-control me-2 form-control-sm" type="search" placeholder="Search" aria-label="Search" name="search"> 
           <button class="btn btn-outline-success" type="submit">Search</button> 
         </form>
-    </div>
-</nav>
-<!-- Upper Navbar Ends Here -->
-
-<!-- Lower Navbar Starts Here -->
-<nav class="navbar navbar-expand-sm sticky-top bg-body-light" style="background-color: white;">
+      </div>
+    </nav>
+    <!-- Upper Navbar Ends Here -->
+    
+    <!-- Lower Navbar Starts Here -->
+    <nav class="navbar navbar-expand-sm sticky-top bg-body-light" style="background-color: white;">
   <div class="container-fluid">
     <a class="navbar-brand" href="{% url 'home-page' %}"><img src="{% static 'images/Hospital Brand.jpg' %}" height="50" width="170" class="d-inline-block align-text-center"></a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -55,8 +56,8 @@
             Services
           </a>
           <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="#">Cardiology</a></li>
-                <li><a class="dropdown-item" href="#">Dentistry</a></li>
+            <li><a class="dropdown-item" href="#">Cardiology</a></li>
+            <li><a class="dropdown-item" href="#">Dentistry</a></li>
                 <li><a class="dropdown-item" href="#">Dermatology</a></li>
                 <li><a class="dropdown-item" href="#">Endocrinology</a></li>
                 <li><a class="dropdown-item" href="#">ENT</a></li>
@@ -73,7 +74,7 @@
                 <li><a class="dropdown-item" href="#">Radiodiagnosis</a></li>
                 <li><a class="dropdown-item" href="#">Radiotherapy</a></li>
                 <li><a class="dropdown-item" href="#">Surgery</a></li>
-          </ul>
+              </ul>
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -90,17 +91,29 @@
           </ul>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="#">Downloads</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Feedback / Complaint</a>
-          </li>
+          <a class="nav-link" href="#">Downloads</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Feedback / Complaint</a>
+        </li>
       </ul>
-      <form class="d-flex" role="contacting">
-        <button class="btn me-3 animated-button"><a href="{% url 'appointment' %}" style="text-decoration: none; color: white;">Book Appointment</a></button>
-        <button class="btn animated-button" type="submit">Request a Callback</button>  
+      <form class="d-flex" role="booking appointment" action="{% url 'appointment' %}">
+        <button class="btn me-3 animated-button" type="submit">Book Appointment</button>
       </form>
+      <button class="btn animated-button"  onclick="showDialog()">Request a Callback</button>
+      <div id="dialogOverlay">
+        <form class="d-flex" role="contacting" action="" method="POST">
+          {% csrf_token %}
+          <div class="dialog-box">
+              <b>Please provide your contact number.</b>
+              <input type="tel" placeholder="Mobile / Landline" name="contact" maxlength="13" style="margin-top: 10px;">
+              <button class="submit-button" type="submit">Confirm</button>
+              <button class="close-button" onclick="closeDialog()">Close</button>
+          </div>
+        </form>
+      </div>  
     </div>
   </div>
 </nav>
 <!-- Lower Navbar Ends Here -->
+
