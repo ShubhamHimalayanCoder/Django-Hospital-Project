@@ -23,7 +23,9 @@
               <a class="nav-link" href="{% url 'faq' %}">FAQ</a>
             </li>
         </ul>
-        <select class="form-select form-select-sm me-3" aria-label="select" style="width: auto;">
+        <a class= "btn btn-primary ms-2" href="{% url 'Patient:signup' %}">Signup</a>
+        <a class= "btn btn-primary ms-2" href="{% url 'Patient:login' %}">Login</a>
+        <select class="form-select form-select-sm me-3" aria-label="select" style="width: auto; margin-top: 10px; margin-left: 10px;">
           <option selected>Location</option>
           <option value="1">Chandigarh</option>
           <option value="2">New Delhi</option>

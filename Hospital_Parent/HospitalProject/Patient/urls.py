@@ -10,4 +10,6 @@ urlpatterns = [
     path('filter/<slug:by>', views.filter_patient, name='filter-patient'),
     path('export-to-excel/', views.convert_to_excel, name='to-excel'),
     path('download-excel-file/', views.download_excel_file, name='download-excel'),
+    path('signup/', views.signup , name='signup'),
+    path('login/', views.staff_login , name='login'),
 ]

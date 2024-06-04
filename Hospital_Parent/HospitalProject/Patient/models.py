@@ -16,5 +16,18 @@ class Patients(models.Model):
     patient_image = models.ImageField(upload_to='patient_image/',null=True) # For uploaded photo
 
 
-    def __str__(self) -> str:
+    def __str__(self):
         return f'Patient ID : {self.patient_id}, Name : {self.patient_full_name}'
+    
+
+
+class Staff(models.Model):
+    staff_id = models.AutoField(primary_key=True,unique=True)
+    staff_name = models.CharField(max_length=100)
+    staff_designation = models.CharField(max_length=20)
+    staff_email = models.EmailField(max_length=100, unique=True)
+    staff_mobile = models.CharField(max_length=10,unique=True)
+    staff_password = models.CharField(max_length=18,editable=False)
+
+    def __str__(self):
+        return f'Staff ID : {self.staff_id}, Designation : {self.staff_designation}'

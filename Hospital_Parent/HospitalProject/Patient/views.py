@@ -13,6 +13,9 @@ import os
 # For pagination
 from django.core.paginator import Paginator
 
+# For login and signup
+from django.contrib.auth.hashers import make_password, check_password
+
 # Create your views here.
 def patient(request,page):
     if request.GET:
@@ -79,10 +82,10 @@ def patient(request,page):
     patients = models.Patients.objects.all()
 
     paginator = Paginator(patients,4)
-    # paginator.page(number=)
+    pagination_patients = paginator.page(number=page)
 
     data = {
-        'patients' : patients
+        'patients' : pagination_patients
     }
     return render(request,'Patient/patient.html',context=data)
     # cars = ['Ford','BMW','Audi']
@@ -140,8 +143,9 @@ def update_patient(request,id):
         error['patient'] = patient
         return render(request,'Patient/update.html',context=error)
         
-    patient = models.Patients.objects.get(patient_id = id)
-    return render(request,'Patient/update.html',context={'patient':patient})
+    patient = models.Patients.objects.get(patient_id=id)
+    data = {'patient':patient}
+    return render(request,'Patient/update.html',context=data)
 
 
 def filter_patient(request,by):
@@ -186,3 +190,48 @@ def download_excel_file(request):
             return response
     else:
         return HttpResponse('File not found')
+    
+
+def signup(request):
+    if request.POST:
+        full_name = request.POST.get('full_name')
+        designation = request.POST.get('designation')
+        email = request.POST.get('email')
+        mobile = request.POST.get('mobile')
+        password = request.POST.get('password')
+        confirm_password = request.POST.get('confirm_password')
+
+        if all([full_name,designation,email,mobile,password,confirm_password]):
+            if password == confirm_password:
+                encrypt_password = make_password(password)
+                try:
+                    models.Staff.objects.create(staff_name=full_name,
+                                                staff_designation=designation,
+                                                staff_email=email,
+                                                staff_mobile=mobile,
+                                                staff_password=encrypt_password)
+                    return render(request, 'Patient/signup.html', context={'success':'done'})
+                except IntegrityError as e:
+                    if 'staff_email' in str(e):
+                        error={
+                            'error' : 'email exists'
+                        }
+                    else:
+                        error = {
+                            'error' : 'else-error'
+                        }
+            else:
+                error = {
+                    'error' : 'password-mismatch'
+                }
+        else:
+            error = {
+                'error' :'empty-fields'
+            }
+        return render(request, 'Patient/signup.html', context=error)
+
+    return render(request, 'Patient/signup.html')
+
+
+def staff_login(request):
+    return render(request, 'Patient/login.html')
