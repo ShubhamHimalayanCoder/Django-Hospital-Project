@@ -214,11 +214,11 @@ def signup(request):
                 except IntegrityError as e:
                     if 'staff_email' in str(e):
                         error={
-                            'error' : 'email exists'
+                            'error' : 'email-error'
                         }
                     else:
                         error = {
-                            'error' : 'else-error'
+                            'error' : 'mobile-error'
                         }
             else:
                 error = {
