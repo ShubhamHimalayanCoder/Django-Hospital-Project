@@ -1,71 +1,69 @@
-  .nav1{
-      font-size: 30px;
-      color: black;
-    
-  }
+.nav1{
+  font-size: 30px;
+  color: black;  
+}
 
-  .nav1:hover{
-    color: black;
-    background-color: skyblue;
-  }
-  
-  .nav-underline .nav-link:hover{
-      color: blue;
-      border-bottom-color: blue ;
-  }
+.nav1:hover{
+  color: black;
+  background-color: skyblue;
+}
 
-  .upper-nav>ul>li>a:hover{
-    font-size: large;
-    color: blue
-    
-  }
+.nav-underline .nav-link:hover{
+  color: blue;
+  border-bottom-color: blue ;
+}
 
-  .animated-button {
-    position: relative;
-    background-color: black;
-    color: white;
-    border: none;
-    padding: 10px 30px;
-    font-size: 17px;
-    cursor: pointer;
-    overflow: hidden;
-    z-index: 1;
-    transition: color 0.5s ease;
+.upper-nav>ul>li>a:hover{
+  font-size: large;
+  color: blue 
+}
+
+.animated-button {
+  position: relative;
+  background-color: black;
+  color: white;
+  border: none;
+  padding: 10px 30px;
+  font-size: 17px;
+  cursor: pointer;
+  overflow: hidden;
+  z-index: 1;
+  transition: color 0.5s ease;
 }
 
 .animated-button::before,
 .animated-button::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    width: 50%;
-    height: 100%;
-    background-color:  #0372fa;
-    transition: transform 0.5s ease;
-    z-index: -1;
+  content: '';
+  position: absolute;
+  top: 0;
+  width: 50%;
+  height: 100%;
+  background-color:  #0372fa;
+  transition: transform 0.5s ease;
+  z-index: -1;
 }
 
 .animated-button::before {
-    left: 0;
-    transform: translateX(0);
+  left: 0;
+  transform: translateX(0);
 }
 
 .animated-button::after {
-    right: 0;
-    transform: translateX(0);
+  right: 0;
+  transform: translateX(0);
 }
 
 .animated-button:hover::before {
-    transform: translateX(-100%);
+  transform: translateX(-100%);
 }
 
 .animated-button:hover::after {
-    transform: translateX(100%);
+  transform: translateX(100%);
 }
 
 .animated-button:hover {
-    background-color: black;
-    color: white;
+  background-color: black;
+  color: white;
 }
 
 

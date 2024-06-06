@@ -11,8 +11,20 @@
 <body>
     {% include 'navbar.html' %}
     <h2>Login</h2>
-    <form action="" method="POST" id="login">
+    <form action="{% url 'Patient:login' %}" method="POST" id="login">
         {% csrf_token %}
+        {% if error == 'empty-fields' %}
+            <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                <strong>Empty Fields</strong> You should check in on some of those fields below.
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        {% endif %}
+        {% if error == 'not-matched' %}
+        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+            <strong>ERROR</strong> Email or Password is incorrect.
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+        {% endif %}
         <div>
             <label for="email">Email:</label>
             <input type="email" id="email" name="email" required>

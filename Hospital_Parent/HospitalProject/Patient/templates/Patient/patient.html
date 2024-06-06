@@ -42,8 +42,10 @@
                         <div class="d-flex justify-content-between"> 
                         <h2>{{patient.patient_full_name}}</h2>
                                 <div class="alter-btn">
-                                    <a class="edit" href="{% url 'Patient:update' id=patient.patient_id %}"><i class="bi bi-pencil-square"></i></a>
-                                    <a class="delete" href="{% url 'Patient:delete-card' id=patient.patient_id %}"><i class="bi bi-trash"></i></a>
+                                    {% if request.session.staff_designation == 'Doctor' or 'Administrator' %}
+                                        <a class="edit" href="{% url 'Patient:update' id=patient.patient_id %}"><i class="bi bi-pencil-square"></i></a>
+                                        <a class="delete" href="{% url 'Patient:delete-card' id=patient.patient_id %}"><i class="bi bi-trash"></i></a>
+                                    {% endif %}
                                 </div>
                             </div>
                         <div class="details">

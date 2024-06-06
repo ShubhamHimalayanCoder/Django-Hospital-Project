@@ -18,6 +18,8 @@ from django.contrib.auth.hashers import make_password, check_password
 
 # Create your views here.
 def patient(request,page):
+    if not (request.session.get('staff_id')):
+        return redirect('Patient:login')
     if request.GET:
         query = request.GET['search']
         patients = models.Patients.objects.filter(Q(patient_full_name__icontains=query)
@@ -91,12 +93,16 @@ def patient(request,page):
     # cars = ['Ford','BMW','Audi']
 
 def delete_patient(request,id):
+    if not (request.session.get('staff_id')):
+        return redirect('Patient:login')
     ex_patient = models.Patients.objects.get(patient_id=id)
     ex_patient.patient_image.delete()
     ex_patient.delete()
     return redirect("Patient:patient-page")
 
 def update_patient(request,id):
+    if not (request.session.get('staff_id')):
+        return redirect('Patient:login')
     if request.POST:
         full_name = request.POST['full_name']
         father_name = request.POST['father_name']
@@ -149,6 +155,8 @@ def update_patient(request,id):
 
 
 def filter_patient(request,by):
+    if not (request.session.get('staff_id')):
+        return redirect('Patient:login')
     if by == 'male':
         patients = models.Patients.objects.filter(patient_gender='male').all()
         data = {
@@ -173,6 +181,8 @@ def filter_patient(request,by):
     
 
 def convert_to_excel(request):
+    if not (request.session.get('staff_id')):
+        return redirect('Patient:login')
     patients = models.Patients.objects.all().values('patient_id','patient_full_name','patient_father_name','patient_age','patient_gender','patient_mobile','patient_email','patient_city','patient_symptoms')
     columns = ['ID', 'Name', 'Age', 'Gender', 'Phone', 'Email', 'City', 'Symptoms', 'Registeration Date']
     raw =pd.DataFrame(patients)
@@ -182,6 +192,8 @@ def convert_to_excel(request):
     return redirect('Patient:download-excel')
 
 def download_excel_file(request):
+    if not (request.session.get('staff_id')):
+        return redirect('Patient:login')    
     file_path = os.path.join(settings.MEDIA_ROOT, 'patient_excel_file/patients.xlsx')
     if os.path.exists(file_path):
         with open(file_path,'rb') as file:
@@ -234,4 +246,39 @@ def signup(request):
 
 
 def staff_login(request):
+    if request.POST:
+        email = request.POST.get('email')
+        password = request.POST.get('password')
+
+        if all([email,password]):
+            check_email = models.Staff.objects.filter(staff_email = email).exists()
+            if check_email:
+                staff = models.Staff.objects.get(staff_email=email)
+                check_pass = check_password(password,staff.staff_password)
+                if check_pass:
+                    request.session['staff_id'] = staff.staff_id
+                    request.session['staff_name'] = staff.staff_name
+                    request.session['staff_designation'] = staff.staff_designation
+                    return redirect('home-page')
+                else:
+                    error = {
+                    'error' :'not-matched'
+                }
+            else:
+                error = {
+                    'error' :'not-matched'
+                }
+        else:
+            error = {
+                'error':'empty-fields'
+            }
+        return render(request, 'Patient/login.html',context=error)
+    
     return render(request, 'Patient/login.html')
+
+
+def staff_logout(request):
+    request.session.pop('staff_id')
+    request.session.pop('staff_name')
+    request.session.pop('staff_designation')
+    return redirect('Patient:login')

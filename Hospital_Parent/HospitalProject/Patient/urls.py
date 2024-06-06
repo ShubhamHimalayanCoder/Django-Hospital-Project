@@ -12,4 +12,5 @@ urlpatterns = [
     path('download-excel-file/', views.download_excel_file, name='download-excel'),
     path('signup/', views.signup , name='signup'),
     path('login/', views.staff_login , name='login'),
+    path('logout/', views.staff_logout , name='logout'),
 ]

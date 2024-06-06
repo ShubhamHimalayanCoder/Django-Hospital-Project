@@ -23,8 +23,16 @@
               <a class="nav-link" href="{% url 'faq' %}">FAQ</a>
             </li>
         </ul>
+        {% if request.session.staff_id %}
+        <div class="ms-2 bg-primary p-2 rounded">
+          <b class="text-white">{{request.session.staff_name}}</b>
+        <a class= "btn btn-danger ms-2" href="{% url 'Patient:logout' %}">Logout</a>
+        </div>
+        {% else %}
         <a class= "btn btn-primary ms-2" href="{% url 'Patient:signup' %}">Signup</a>
         <a class= "btn btn-primary ms-2" href="{% url 'Patient:login' %}">Login</a>
+        {% endif %}
+
         <select class="form-select form-select-sm me-3" aria-label="select" style="width: auto; margin-top: 10px; margin-left: 10px;">
           <option selected>Location</option>
           <option value="1">Chandigarh</option>
@@ -108,7 +116,7 @@
           {% csrf_token %}
           <div class="dialog-box">
               <b>Please provide your contact number.</b>
-              <input type="tel" placeholder="Mobile / Landline" name="contact" maxlength="13" style="margin-top: 10px;">
+              <input type="tel" placeholder="Mobile / Landline" name="contact" maxlength="13" style="margin-top: 10px;" pattern="[0-9]+" title="Enter Numbers Only">
               <button class="submit-button" type="submit">Confirm</button>
               <button class="close-button" onclick="closeDialog()">Close</button>
           </div>
@@ -118,4 +126,3 @@
   </div>
 </nav>
 <!-- Lower Navbar Ends Here -->
-
